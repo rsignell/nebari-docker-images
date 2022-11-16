@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - ipympl-jupyterlab
     paths:
       - "Dockerfile.*"
 
@@ -46,15 +47,15 @@ jobs:
       matrix:
         dockerfile:
           - jupyterlab
-          - jupyterhub
-          - dask-worker
+#           - jupyterhub
+#           - dask-worker
         platform:
-          - gpu
+#           - gpu
           - cpu
-        exclude:
+#         exclude:
           # excludes JupyterHub/GPU
-          - dockerfile: jupyterhub
-            platform: gpu
+#           - dockerfile: jupyterhub
+#             platform: gpu
 
     steps:
       - name: "Checkout Repository 🛎️"
